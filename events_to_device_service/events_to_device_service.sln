@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "events_to_device_service", "events_to_device_service\events_to_device_service.ccproj", "{24BBDA26-EBBB-43CB-8AC6-AA0F35FB5540}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events_forwarding", "events_forwarding\events_forwarding.csproj", "{700A3AE9-F69F-4517-9B61-D1C814E2903D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24BBDA26-EBBB-43CB-8AC6-AA0F35FB5540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24BBDA26-EBBB-43CB-8AC6-AA0F35FB5540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24BBDA26-EBBB-43CB-8AC6-AA0F35FB5540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24BBDA26-EBBB-43CB-8AC6-AA0F35FB5540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{700A3AE9-F69F-4517-9B61-D1C814E2903D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700A3AE9-F69F-4517-9B61-D1C814E2903D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700A3AE9-F69F-4517-9B61-D1C814E2903D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700A3AE9-F69F-4517-9B61-D1C814E2903D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://astranitech.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = events_forwarding\\events_forwarding.csproj
+		SccProjectName1 = events_forwarding
+		SccLocalPath1 = events_forwarding
+		SccProjectUniqueName2 = events_to_device_service\\events_to_device_service.ccproj
+		SccProjectName2 = events_to_device_service
+		SccLocalPath2 = events_to_device_service
+	EndGlobalSection
+EndGlobal
