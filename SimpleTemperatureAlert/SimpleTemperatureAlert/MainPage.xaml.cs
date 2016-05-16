@@ -31,10 +31,10 @@ namespace SimpleTemperatureAlert
     {
         //A class which wraps the barometric sensor
         BMP280 BMP280;
-        private const int ledPin = 5;
-        private GpioPin led;
+        private const int LED_PIN = 5;
         private GpioPin gpiopin;
-        private const int pin=5;
+        private GpioPinValue pinValue;
+        //private const int pin=5;
         private DispatcherTimer timer;
         static DeviceClient deviceClient;
         static string iotHubUri = "<Iot Hub Host URL>";
@@ -84,20 +84,15 @@ namespace SimpleTemperatureAlert
             // return an error if there is no gpio controller
             if (gpio == null)
             {
-                led = null;
                 Debug.WriteLine("There is no GPIO controller.");
                 return;
             }
             else
             {
-
-                gpiopin = gpio.OpenPin(pin);
-                gpiopin.Write(GpioPinValue.High);
+                gpiopin = gpio.OpenPin(LED_PIN);
+                pinValue = GpioPinValue.High;
+                gpiopin.Write(pinValue);
                 gpiopin.SetDriveMode(GpioPinDriveMode.Output);
-
-                led = gpio.OpenPin(ledPin);
-                led.Write(GpioPinValue.High);
-                led.SetDriveMode(GpioPinDriveMode.Output);
 
                 Debug.WriteLine("GPIO pins initialized correctly.");
             }
@@ -170,7 +165,7 @@ namespace SimpleTemperatureAlert
         }
         public async Task<string> ReceiveCloudToDeviceMessageAsync()
         {
-            var deviceClient = DeviceClient.CreateFromConnectionString(connectionString, TransportType.Amqp);
+           // var deviceClient = DeviceClient.CreateFromConnectionString(connectionString, TransportType.Amqp);
 
             while (true)
             {
@@ -178,7 +173,8 @@ namespace SimpleTemperatureAlert
 
                 if (receivedMessage != null)
                 {
-                    led.Write(GpioPinValue.Low);
+                    pinValue = GpioPinValue.Low;
+                    gpiopin.Write(pinValue);
 
                     var messageData = Encoding.ASCII.GetString(receivedMessage.GetBytes());
                     await deviceClient.CompleteAsync(receivedMessage);
@@ -186,7 +182,8 @@ namespace SimpleTemperatureAlert
                 }
                 else
                 {
-                    led.Write(GpioPinValue.High);
+                    pinValue = GpioPinValue.High;
+                    gpiopin.Write(pinValue);
                 }
 
                 await Task.Delay(TimeSpan.FromSeconds(1));
